@@ -1,0 +1,233 @@
+body, html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.controls {
+  position: absolute;
+  z-index: 1;
+  width: 40%;
+}
+
+
+/*DINO*/
+.dino {
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    width: 250px;
+    height: 236px;
+    z-index: 3;
+}
+
+
+/*FOND*/
+
+.paysage {
+
+    height: 100%;
+    position: absolute;
+    background: url('../images/BG.png');
+    transition: left 4000s linear;
+    left: -250000px;
+    width: 100000%;
+    z-index: 0;
+    left: -250000px;
+}
+
+/*Pour un meilleur effet de mouvement vu que l'eau et le fond sont dans la même div, ils continueron à bouger vers le même côté pour les differantes varaibles */
+
+.paysage.bouge {
+    left: 500000px;
+}
+.paysage.bougegauche{
+    left: 1000000px;
+}
+
+/*DECOR*/
+
+
+.decor {
+  position: absolute;
+  width: 100000%;
+  height: 100%;
+  left: -260000px;
+  transition: left 1800s linear;
+}
+.decor.bouge {
+    left: -500000px;
+}
+.decor.bougegauche{
+    left: 100000px;
+}
+
+.decor.bouge {
+    animation-play-state: running;
+}
+
+
+
+/*SOL */
+
+.sol {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 100px;
+    background: url('../images/2.png');
+    z-index: 2;
+}
+
+
+/*OBJETS*/
+
+.objets {
+  position: absolute;
+  z-index: 2;
+  height: 1250px;
+  width: 100%;
+  background: url('../images/elements.png') repeat-x;
+  bottom: 48px;
+}
+
+
+
+/*eau qui bouge*/
+
+
+.eau {
+  position: absolute;
+  z-index: 4;
+  bottom: -40px;
+  width: 100%;
+  height: 100px;
+  background: url('../images/17.png') repeat-x;
+
+}
+/*
+.eau.bouge {
+    left: -50px;
+}
+
+.eas.bouge {
+    animation-play-state: running;
+}
+*/
+
+
+
+
+
+
+
+
+
+.dino.lookleft {
+    transform: rotateY(-180deg);
+    transition: none;
+}
+
+.dino.moveright {
+    transform: translateX(10000px);
+}
+.wrap {
+    background: #C0C;
+    width: 200px;
+    height: 236px;
+}
+
+
+/*FOND*/
+
+@keyframes bougefond {
+    to {
+        background-position: -5000px 0;
+    }
+}
+
+/*POSITION ATTENTE*/
+
+.dino.attente {
+    background: url('../images/position-attente-mini.png');
+    background-repeat: no-repeat;
+    animation: attente 1s steps(10) infinite;
+}
+
+@keyframes attente {
+    from {
+      background-position: 0px 0px;
+    }
+    to {
+        background-position: -3357px 0px;
+    }
+}
+
+/*POSITION MARCHE*/
+
+
+.dino.marche {
+    background: url('../images/marche-complete.png');
+    animation: marche 1s steps(10) infinite;
+}
+
+@keyframes marche {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: -3357px 0px;
+    }
+}
+
+
+
+/*DINO SAUT*/
+
+.dino.saut {
+    background: url('../images/jump.png');
+    animation: saut 1s steps(12);
+}
+
+@keyframes saut {
+    0% {
+      width: 250px;
+      background-position: 0px 0px;
+      bottom: 70px;
+    }
+    25% {
+      bottom: 25%;
+    }
+    50%{
+      bottom: 40%;
+    }
+    75% {
+      bottom: 25%;
+    }
+    100% {
+      bottom: 70px;
+      width: 250px;
+      background-position: -4029px 0px;
+    }
+}
+
+
+/*DINO DEAD*/
+
+.dino.mort {
+    background: url('../images/dino-dead.png');
+    animation: mort 1s steps(8);
+}
+
+@keyframes mort {
+  from {
+    width: 350px;
+    background-position: 0px 0px;
+  }
+  to {
+    width: 350px;
+      background-position: -2686px 0px;
+  }
+}
